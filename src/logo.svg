@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 785.21 785.21">
+    <style xmlns="http://www.w3.org/2000/svg">
+        .st0 {
+        stroke: #1591f8;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10
+        }
+    </style>
+    <defs>
+        <linearGradient id="top-left" y2="0%">
+            <stop offset="1" stop-color="#56d1fa">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+            <stop offset="1" stop-color="#002a46">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+        </linearGradient>
+        <linearGradient id="left" y2="100%">
+            <stop offset="1" stop-color="#2d4bf0">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+            <stop offset="1" stop-color="#002a46">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+        </linearGradient>
+        <linearGradient id="center" y2="100%">
+            <stop offset="1" stop-color="#1591f8">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+            <stop offset="1" stop-color="#002a46">
+                <animate dur="2.25s" attributeName="offset" fill="freeze" from="0" to="2.25"
+                         repeatCount="indefinite" values="0;1;1;0"/>
+            </stop>
+        </linearGradient>
+    </defs>
+    <path
+            d="M532.82 448.7L326.97 572.2 112.18 196.31 532.82 448.7zm-420.64-9.35v233.69h46.74l68.73-41.24-115.47-192.45z"
+            fill="none"/>
+    <path className="st0" fill="url(#top-left)" d="M785.21 448.7H532.82L112.18 196.31 0 .01 785.21 448.7z"/>
+    <path className="st0"
+          d="M112.18 196.31L.01.01l112.17 196.3zM386.57 676.5l62.11 108.7-126.17-72.11-70.12-40.07h-93.47l68.72-41.22h.01L112.18 439.35 0 252.39V0l112.18 196.31L326.97 572.2l205.85-123.5h252.39L386.57 676.5z"
+          fill="url(#center)"/>
+    <path className="st0" fill="url(#left)"
+          d="M448.69 785.21H0V252.39l112.18 186.96v233.69h140.21l70.11 40.06 126.19 72.11z"/>
+</svg>
