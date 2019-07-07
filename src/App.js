@@ -59,7 +59,7 @@ class App extends React.Component {
 
     tick() {
         this.i++;
-        this.position += waveTime; // Wave time
+        this.position += waveTime; // time when wave in "DIGIS internship React program includes:" finish
         if (this.i === numRows) {
             this.i = 0;
         }
@@ -68,9 +68,23 @@ class App extends React.Component {
         });
     }
 
+    handleSongLoading = (song) => {
+        this.setState({ currentSong: song, position: 0 });
+        console.log('loading...');
+    }
+
     render() {
         return (
             <div className="App">
+                <Sound
+                    url="https://villa-pinia.com/wp-content/uploads/design-library/Come-As-You-Are.mp3"
+                    playStatus={Sound.status.PLAYING}
+                    onLoading={this.handleSongLoading}
+                    onLoad={() => console.log('Loaded')}
+                    loop={true}
+                    autoLoad={true}
+                    onError={() => console.log('Error')}
+                />
                 <header className="App-header">
                     <Fireworks />
                     <img src={logo} className="Digis-logo" alt="Digis" width="500"/>
@@ -84,15 +98,6 @@ class App extends React.Component {
                     >
                         Learn React
                     </a>
-                    <Sound
-                        url="https://villa-pinia.com/wp-content/uploads/design-library/Come-As-You-Are.mp3"
-                        playStatus={Sound.status.PLAYING}
-                        playFromPosition={this.position}
-                        onLoading={this.handleSongLoading}
-                        onPlaying={this.handleSongPlaying}
-                        onFinishedPlaying={this.handleSongFinishedPlaying}
-                        loop={1}
-                    />
                 </header>
             </div>
         );
@@ -100,7 +105,6 @@ class App extends React.Component {
 }
 
 class Fireworks extends React.Component {
-    state={}
     componentDidMount() {
         this.setup()
     }
@@ -123,7 +127,7 @@ class Fireworks extends React.Component {
                 self.canvas = document.createElement('canvas');
                 self.canvasContainer = $('#canvas-container');
 
-                var canvasContainerDisabled = document.getElementById('canvas-container');
+                //var canvasContainerDisabled = document.getElementById('canvas-container');
                 self.canvas.onselectstart = function() {
                     return false;
                 };
@@ -350,7 +354,7 @@ class Fireworks extends React.Component {
                 }
 
                 if(this.hitX && this.hitY){
-                    var randExplosion = rand(0, 9);
+                    //var randExplosion = rand(0, 9);
                     self.createParticles(this.targetX, this.targetY, this.hue);
                     self.fireworks.splice(index, 1);
                 }
@@ -432,14 +436,14 @@ class Fireworks extends React.Component {
                 });
 
                 $(self.canvas).on('mousedown', function(e){
-                    var randLaunch = rand(0, 5);
+                    //var randLaunch = rand(0, 5);
                     self.mx = e.pageX - self.canvasContainer.offset().left;
                     self.my = e.pageY - self.canvasContainer.offset().top;
                     self.currentHue = rand(self.hueMin, self.hueMax);
                     self.createFireworks(self.cw/2, self.ch, self.mx, self.my);
 
                     $(self.canvas).on('mousemove.fireworks', function(e){
-                        var randLaunch = rand(0, 5);
+                        //var randLaunch = rand(0, 5);
                         self.mx = e.pageX - self.canvasContainer.offset().left;
                         self.my = e.pageY - self.canvasContainer.offset().top;
                         self.currentHue = rand(self.hueMin, self.hueMax);
@@ -710,7 +714,6 @@ class Fireworks extends React.Component {
         gui.remember(fworks);
     }
     render() {
-        const style = ''
         return (
             <div>
                 <div id="gui"></div>
