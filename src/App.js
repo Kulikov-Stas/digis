@@ -3,7 +3,8 @@ import $ from 'jquery';
 import logo from './logo.svg';
 import './App.css';
 import { Wave } from 'react-animated-text';
-import dat, { DatBoolean, DatColor, DatNumber, DatString } from 'dat.gui';
+import dat from 'dat.gui';
+import Sound from 'react-sound';
 
 const exampleStyle = {
     display: 'inline-block',
@@ -17,6 +18,8 @@ export const Wave0 = () => (
         <Wave text="DIGIS internship React program includes:" effect="stretch" effectChange={1.3} />
     </div>
 )
+
+const waveTime = 4000; // time when wave in "DIGIS internship React program includes:" finish
 
 const loaderText = [
     'Work in the consolidated and friendly team',
@@ -39,13 +42,14 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.i = 0;
+        this.position = 0;
         this.state = {iteration: loaderTextItem[0]};
     }
 
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(),
-            4000
+            waveTime
         );
     }
 
@@ -55,6 +59,7 @@ class App extends React.Component {
 
     tick() {
         this.i++;
+        this.position += waveTime; // Wave time
         if (this.i === numRows) {
             this.i = 0;
         }
@@ -79,6 +84,15 @@ class App extends React.Component {
                     >
                         Learn React
                     </a>
+                    <Sound
+                        url="https://villa-pinia.com/wp-content/uploads/design-library/Come-As-You-Are.mp3"
+                        playStatus={Sound.status.PLAYING}
+                        playFromPosition={this.position}
+                        onLoading={this.handleSongLoading}
+                        onPlaying={this.handleSongPlaying}
+                        onFinishedPlaying={this.handleSongFinishedPlaying}
+                        loop={1}
+                    />
                 </header>
             </div>
         );
